@@ -1,12 +1,14 @@
 # Project: Loot Generator
 
-Authors: (_TODO: fill in names here!_)
+Authors: Rex Wallin
 
 ## Resources
 
-*   (_TODO: fill in resources here!_)
-*   ...
-*   ...
+*   Java Files docs: https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html
+*   Java Path docs: https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html
+*   Java Consumer docs: https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html
+*   Java Stream docs: https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html
+
 
 ## Revision Log
 
