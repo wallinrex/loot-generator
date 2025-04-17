@@ -13,7 +13,7 @@ public class MagicSuffix {
     
     private ArrayList<Suffix> suffixes;
 
-    private record Suffix(String name, String effect, int min, int max) { }
+    public record Suffix(String name, String effect, int min, int max) { }
 
     private class ParseLine implements Consumer<String> {
 

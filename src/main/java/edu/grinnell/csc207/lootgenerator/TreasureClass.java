@@ -32,12 +32,17 @@ public class TreasureClass {
         lines.close();
     }
 
-    public boolean contains(String treasureClass) {
-        return classes.containsKey(treasureClass);
+    private String getArmorPieceHelper(String treasureClass) {
+        if (classes.containsKey(treasureClass)) {
+            int index = new Random().nextInt(3);
+            String newClass = classes.get(treasureClass)[index];
+            return getArmorPieceHelper(newClass);
+        } else {
+            return treasureClass;
+        }
     }
 
-    public String getChoice(String treasureClass) {
-        int index = new Random().nextInt(3);
-        return classes.get(treasureClass)[index];
+    public String getArmorPiece(String treasureClass) {
+        return getArmorPieceHelper(treasureClass);
     }
 }

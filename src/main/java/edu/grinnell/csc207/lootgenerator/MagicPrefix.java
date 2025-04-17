@@ -13,7 +13,7 @@ public class MagicPrefix {
     
     private ArrayList<Prefix> prefixes;
 
-    private record Prefix(String name, String effect, int min, int max) { }
+    public record Prefix(String name, String effect, int min, int max) { }
 
     private class ParseLine implements Consumer<String> {
 

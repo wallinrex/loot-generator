@@ -13,7 +13,7 @@ public class MonStats {
 
     private ArrayList<Monster> monsters;
 
-    private record Monster (String monsterClass, String type, int level, String treasureClass) { }
+    public record Monster (String monsterClass, String type, int level, String treasureClass) { }
 
     private class ParseLine implements Consumer<String> {
 
