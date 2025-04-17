@@ -26,7 +26,7 @@ public class Armor {
     }
 
     public Armor () throws IOException {
-        Path fileName = Paths.get("TreasureClassEx.txt");
+        Path fileName = Paths.get("armor.txt");
         Stream<String> lines = Files.lines(fileName);
         lines.forEach(new ParseLine());
         lines.close();

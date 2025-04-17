@@ -9,31 +9,31 @@ import java.util.Random;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
-public class MonStats {
+public class MagicPrefix {
+    
+    private ArrayList<Prefix> prefixes;
 
-    private ArrayList<Monster> monsters;
-
-    private record Monster (String monsterClass, String type, int level, String treasureClass) { }
+    private record Prefix(String name, String effect, int min, int max) { }
 
     private class ParseLine implements Consumer<String> {
 
         @Override
         public void accept(String str) {
             String[] fields = str.split("\t");
-            Monster newMonster = new Monster(fields[0], fields[1], Integer.parseInt(fields[2]), fields[3]);
-            monsters.add(newMonster);
+            Prefix newPrefix = new Prefix(fields[0], fields[1], Integer.parseInt(fields[2]), Integer.parseInt(fields[3]));
+            prefixes.add(newPrefix);
         }
     }
 
-    public MonStats () throws IOException {
-        Path fileName = Paths.get("monstats.txt");
+    public MagicPrefix () throws IOException {
+        Path fileName = Paths.get("MagicPrefix.txt");
         Stream<String> lines = Files.lines(fileName);
         lines.forEach(new ParseLine());
         lines.close();
     }
 
-    public Monster getMonster() {
-        int index = new Random().nextInt(monsters.size());
-        return monsters.get(index);
+    public Prefix getPrefix() {
+        int index = new Random().nextInt(prefixes.size());
+        return prefixes.get(index);
     }
 }
