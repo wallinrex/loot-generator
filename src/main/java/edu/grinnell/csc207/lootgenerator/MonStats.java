@@ -13,6 +13,7 @@ public class MonStats {
 
     private ArrayList<Monster> monsters;
 
+    @SuppressWarnings("unused")
     private class Monster {
         public String monsterClass;
         public String type;
@@ -35,7 +36,6 @@ public class MonStats {
             Monster newMonster = new Monster(fields[0], fields[1], Integer.parseInt(fields[2]), fields[3]);
             monsters.add(newMonster);
         }
-
     }
 
     public MonStats () throws IOException {
@@ -45,8 +45,8 @@ public class MonStats {
         lines.close();
     }
 
-    public String getMonsterTreasureClass() {
+    public Monster getMonster() {
         int index = new Random().nextInt(monsters.size());
-        return monsters.get(index).treasureClass;
+        return monsters.get(index);
     }
 }
