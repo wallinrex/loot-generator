@@ -24,8 +24,9 @@ public class TreasureClass {
         }
     }
 
-    public TreasureClass () throws IOException {
-        Path fileName = Paths.get("TreasureClassEx.txt");
+    public TreasureClass (String dataSet) throws IOException {
+        classes = new HashMap<>();
+        Path fileName = Paths.get(dataSet + "/TreasureClassEx.txt");
         Stream<String> lines = Files.lines(fileName);
         lines.forEach(new ParseLine());
         lines.close();

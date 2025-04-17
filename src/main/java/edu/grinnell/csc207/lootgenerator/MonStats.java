@@ -25,8 +25,9 @@ public class MonStats {
         }
     }
 
-    public MonStats () throws IOException {
-        Path fileName = Paths.get("monstats.txt");
+    public MonStats (String dataSet) throws IOException {
+        monsters = new ArrayList<>();
+        Path fileName = Paths.get(dataSet + "/monstats.txt");
         Stream<String> lines = Files.lines(fileName);
         lines.forEach(new ParseLine());
         lines.close();

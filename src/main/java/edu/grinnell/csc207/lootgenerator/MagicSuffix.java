@@ -25,8 +25,9 @@ public class MagicSuffix {
         }
     }
 
-    public MagicSuffix () throws IOException {
-        Path fileName = Paths.get("MagicSuffix.txt");
+    public MagicSuffix (String dataSet) throws IOException {
+        suffixes = new ArrayList<>();
+        Path fileName = Paths.get(dataSet + "/MagicSuffix.txt");
         Stream<String> lines = Files.lines(fileName);
         lines.forEach(new ParseLine());
         lines.close();

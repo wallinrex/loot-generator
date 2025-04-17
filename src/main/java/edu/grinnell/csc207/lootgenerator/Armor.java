@@ -25,8 +25,9 @@ public class Armor {
         }
     }
 
-    public Armor () throws IOException {
-        Path fileName = Paths.get("armor.txt");
+    public Armor (String dataSet) throws IOException {
+        pieces = new HashMap<>();
+        Path fileName = Paths.get(dataSet + "/armor.txt");
         Stream<String> lines = Files.lines(fileName);
         lines.forEach(new ParseLine());
         lines.close();

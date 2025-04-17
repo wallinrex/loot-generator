@@ -25,8 +25,9 @@ public class MagicPrefix {
         }
     }
 
-    public MagicPrefix () throws IOException {
-        Path fileName = Paths.get("MagicPrefix.txt");
+    public MagicPrefix (String dataSet) throws IOException {
+        prefixes = new ArrayList<>();
+        Path fileName = Paths.get(dataSet + "/MagicPrefix.txt");
         Stream<String> lines = Files.lines(fileName);
         lines.forEach(new ParseLine());
         lines.close();
