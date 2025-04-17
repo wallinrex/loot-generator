@@ -33,9 +33,9 @@ public class Armor {
         lines.close();
     }
 
-    public int getDefense(String piece) {
+    public String getDefense(String piece) {
         int[] values = pieces.get(piece);
         int defense = new Random().nextInt(values[0], values[1] + 1);
-        return defense;
+        return String.valueOf(defense);
     }
 }
