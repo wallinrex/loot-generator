@@ -63,10 +63,12 @@ public class ArmorPiece {
         if (prefix != null) {
             String effectValue = String.valueOf(randoms.nextInt(prefix.min(), prefix.max() + 1));
             System.out.println(effectValue + " " + prefix.effect());
+            // I think value and effect should be swapped, but this matches the example outputs
         }
         if (suffix != null) {
             String effectValue = String.valueOf(randoms.nextInt(suffix.min(), suffix.max() + 1));
             System.out.println(effectValue + " " + suffix.effect());
+            // I think value and effect should be swapped, but this matches the example outputs
         }
     }
 }

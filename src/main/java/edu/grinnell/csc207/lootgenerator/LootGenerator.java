@@ -47,7 +47,7 @@ public class LootGenerator {
         ArmorPiece piece = new ArmorPiece(pieceName);
         piece.printName();
         piece.printDefense();
-        piece.printDefense();
+        piece.printAffixes();
         System.out.println();
     }
 
