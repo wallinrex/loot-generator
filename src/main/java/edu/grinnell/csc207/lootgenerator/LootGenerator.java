@@ -1,22 +1,26 @@
 package edu.grinnell.csc207.lootgenerator;
 
 import java.io.IOException;
-import java.util.Random;
 import java.util.Scanner;
 
-import edu.grinnell.csc207.lootgenerator.MagicPrefix.Prefix;
-import edu.grinnell.csc207.lootgenerator.MagicSuffix.Suffix;
 import edu.grinnell.csc207.lootgenerator.MonStats.Monster;
 
 public class LootGenerator {
     /** The path to the dataset (either the small or large set). */
-    public static final String DATA_SET = "data/small";
+    public static final String DATA_SET = "data/large";
     private static MonStats stats;
     private static TreasureClass treasure;
-    private static Armor armor;
-    private static MagicPrefix prefixes;
-    private static MagicSuffix suffixes;
-    
+    public static Armor armor;
+    public static MagicPrefix prefixes;
+    public static MagicSuffix suffixes;
+
+    /**
+     * Driver function that instantiates the necessary data structures and
+     * repeatedly asks the user whether they want to fight again
+     * 
+     * @param args Command-line arguments (there should be none)
+     * @throws IOException If any of the data files can't be opened
+     */
     public static void main(String[] args) throws IOException {
         stats = new MonStats(DATA_SET);
         treasure = new TreasureClass(DATA_SET);
@@ -32,43 +36,40 @@ public class LootGenerator {
         }
     }
 
+    /**
+     * Performs and prints all the actions of fighting the monster and generating
+     * the loot
+     */
     private static void fightMonster() {
         Monster monster = stats.getMonster();
+        printFight(monster);
+        String pieceName = treasure.getArmorPiece(monster.treasureClass());
+        ArmorPiece piece = new ArmorPiece(pieceName);
+        piece.printName();
+        piece.printDefense();
+        piece.printDefense();
+        System.out.println();
+    }
+
+    /**
+     * Prints the user's interaction with a monster
+     * 
+     * @param monster The monster in question
+     */
+    private static void printFight(Monster monster) {
         String monsterName = monster.monsterClass();
         System.out.println("\nFighting " + monsterName + "...");
         System.out.println("You have slain " + monsterName + "!");
         System.out.println(monsterName + " dropped:\n");
-        Random randoms = new Random();
-        StringBuffer itemName = new StringBuffer();
-        Prefix prefix;
-        Suffix suffix;
-        if (randoms.nextInt(2) == 1) {
-            prefix = prefixes.getPrefix();
-            itemName.append(prefix.name() + " ");
-        } else {
-            prefix = null;
-        }
-        String armorName = treasure.getArmorPiece(monster.treasureClass());
-        itemName.append(armorName);
-        if (randoms.nextInt(2) == 1) {
-            suffix = suffixes.getSuffix();
-            itemName.append(" " + suffix.name());
-        } else {
-            suffix = null;
-        }
-        System.out.println(itemName.toString());
-        System.out.println("Defense: " + armor.getDefense(armorName));
-        if (prefix != null) {
-            String effectValue = String.valueOf(randoms.nextInt(prefix.min(), prefix.max() + 1));
-            System.out.println(effectValue + " " + prefix.effect());
-        }
-        if (suffix != null) {
-            String effectValue = String.valueOf(randoms.nextInt(suffix.min(), suffix.max() + 1));
-            System.out.println(effectValue + " " + suffix.effect());
-        }
-        System.out.println();
     }
 
+    /**
+     * Asks the user whether they want to fight again, and asks again if they give
+     * an invalid input
+     * 
+     * @param userInput A Scanner reading standard in
+     * @return true if the user input is "y" or "Y", false if it's "n" or "N"
+     */
     private static boolean prompt(Scanner userInput) {
         System.out.print("Fight again [y/n]? ");
         String answer = userInput.next().toLowerCase();
