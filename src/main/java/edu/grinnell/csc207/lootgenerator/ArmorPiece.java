@@ -5,6 +5,9 @@ import java.util.Random;
 import edu.grinnell.csc207.lootgenerator.MagicPrefix.Prefix;
 import edu.grinnell.csc207.lootgenerator.MagicSuffix.Suffix;
 
+/**
+ * Class to hold an entier armor piece, with base piece an affixes
+ */
 public class ArmorPiece {
 
     private String pieceName;

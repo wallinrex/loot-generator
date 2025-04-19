@@ -9,6 +9,9 @@ import java.util.Random;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
+/**
+ * Class to package a hashmap holding the "armor.txt" file
+ */
 public class Armor {
 
     private HashMap<String, int[]> pieces;

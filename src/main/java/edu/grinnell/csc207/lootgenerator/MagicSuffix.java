@@ -9,6 +9,9 @@ import java.util.Random;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
+/**
+ * Class to package an array holding the "MagicSuffix.txt" file
+ */
 public class MagicSuffix {
 
     private ArrayList<Suffix> suffixes;
