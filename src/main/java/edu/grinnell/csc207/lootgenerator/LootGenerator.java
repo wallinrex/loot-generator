@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 import edu.grinnell.csc207.lootgenerator.MonStats.Monster;
 
+/**
+ * Entry point for the LootGenerator program
+ */
 public class LootGenerator {
     /** The path to the dataset (either the small or large set). */
     public static final String DATA_SET = "data/large";

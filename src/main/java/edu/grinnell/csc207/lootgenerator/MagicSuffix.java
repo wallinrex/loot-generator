@@ -16,8 +16,10 @@ public class MagicSuffix {
 
     private ArrayList<Suffix> suffixes;
 
-    public record Suffix(String name, String effect, int min, int max) {
-    }
+    /**
+     * Object to hold one line from the MagicSuffix file
+     */
+    public record Suffix(String name, String effect, int min, int max) { }
 
     private class ParseLine implements Consumer<String> {
 

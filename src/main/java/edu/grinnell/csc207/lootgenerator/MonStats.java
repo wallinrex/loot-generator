@@ -16,8 +16,10 @@ public class MonStats {
 
     private ArrayList<Monster> monsters;
 
-    public record Monster(String monsterClass, String type, int level, String treasureClass) {
-    }
+    /**
+     * Object to hold the data from one line of the monstats file
+     */
+    public record Monster(String monsterClass, String type, int level, String treasureClass) { }
 
     private class ParseLine implements Consumer<String> {
 

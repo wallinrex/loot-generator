@@ -16,8 +16,10 @@ public class MagicPrefix {
 
     private ArrayList<Prefix> prefixes;
 
-    public record Prefix(String name, String effect, int min, int max) {
-    }
+    /**
+     * Object to hold one line of data from the MagicPrefix file
+     */
+    public record Prefix(String name, String effect, int min, int max) { }
 
     private class ParseLine implements Consumer<String> {
 
